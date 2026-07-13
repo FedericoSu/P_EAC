@@ -1,0 +1,75 @@
+.row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.thumbnail {
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.title {
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.title:hover {
+  text-decoration: underline;
+}
+
+.artist,
+.unitPrice {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.subtotal {
+  font-weight: 600;
+  min-width: 5rem;
+  text-align: right;
+}
+
+.remove {
+  background: none;
+  border: none;
+  color: var(--color-error);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.remove:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 3.5rem 1fr;
+    grid-template-areas:
+      'thumb info'
+      'qty qty'
+      'subtotal remove';
+  }
+
+  .thumbnail {
+    grid-area: thumb;
+  }
+
+  .info {
+    grid-area: info;
+  }
+}
